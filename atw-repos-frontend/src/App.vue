@@ -1,14 +1,13 @@
 <template>
-  <div id="app" class="bg-pink-300">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div id="app">
+    <atw-navbar/>
+      <router-view/>
+    <atw-footer/>
   </div>
 </template>
 
 <style lang="scss">
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -16,17 +15,11 @@
   text-align: center;
   color: #2c3e50;
 }
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
 </style>
+<script>
+import AtwNavbar from "@/components/shared/atw-navbar";
+import AtwFooter from "@/components/shared/atw-footer";
+export default {
+  components: {AtwFooter, AtwNavbar}
+}
+</script>
