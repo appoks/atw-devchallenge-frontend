@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>Olá!</h1>
   </div>
 </template>
 
@@ -9,30 +9,15 @@ import RepositoryService from "@/services/RepositoryService";
 
 export default {
   name: "About",
-  data() {
-    return {
-      reposFromDB: [],
-    };
-  },
-  computed: {},
 
-  mounted() {
-    this.retrieveRepos();
-  },
+}
+</script>
 
-  methods: {
-    retrieveRepos: function () {
-      console.log("Fetching PRODS!");
-      RepositoryService.list()
-          .then(response => {
-            this.reposFromDB = response.data;
-            console.log(response.data);
-          })
-          .catch(e => {
-            console.log(e);
-          });
-    }
-  }
+<style scoped>
+
+.about {
+  padding-top: 48px;
 }
 
-</script>
+</style>
+

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import RepositoryService from "@/services/RepositoryService";
+import LanguageService from "@/services/LanguageService";
 
 Vue.use(Vuex)
 
@@ -12,6 +13,9 @@ export default new Vuex.Store({
     total: 0
   },
   mutations: {
+    SET_LANGS(state, langs) {
+      state.languages = langs;
+    },
     SET_REPOS(state, repos) {
       state.repositories = repos;
     },
@@ -23,7 +27,16 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    fetchRepositories({ commit, dispatch }, { perPage, page }) {
+    fetchLanguages({ commit }) {
+      LanguageService.list()
+          .then(res => {
+            commit("SET_LANGS", res.data);
+          })
+          .catch(err => {
+            console.log(err.response);
+          });
+    },
+    fetchRepositories({ commit }, { perPage, page }) {
       RepositoryService.list()
           .then(res => {
             commit("SET_REPOS", res.data);
@@ -34,14 +47,13 @@ export default new Vuex.Store({
           });
     },
 
-    // @ts-ignore
     fetchRepository({ commit, getters, dispatch }, id) {
-      const product = getters.getProductById(id);
+      const repo = getters.getRepoById(id);
 
-      if (product) {
+      if (repo) {
         commit("SET_REPO", product);
       } else {
-        ProductService.details(id)
+        RepositoryService.details(id)
             .then(res => {
               commit("SET_REPO", res.data);
             })
@@ -52,11 +64,10 @@ export default new Vuex.Store({
     },
   },
   modules: {
+  },
+  getters: {
+    getRepoById: (state) => (id) => {
+      return state.repositories.find(repo => repo.id === id);
+    }
   }
 })
-
-export const getters = {
-  getProductById: (state) => (id) => {
-    return state.repositories.find(repo => repo.id === id);
-  }
-};

@@ -1,5 +1,5 @@
 <template>
-  <div class="repoCard">
+  <div class="repoCard" @click="repoDetails(id)">
       <section class="cardHeader">
         <p class="">
           <strong>{{ repoName }}</strong>
@@ -13,15 +13,20 @@
       </section>
       <section class="cardFooter">
         <p class="langTag">{{ language }}</p>
-        <p class=""><strong>{{ stars }}</strong></p>
+        <p class=""><font-awesome-icon icon="star" /> <strong>{{ stars }}</strong></p>
       </section>
   </div>
 </template>
 
 <script>
 export default {
-name: "RepositoryCard",
-  props: ['repoName', 'language', 'owner', 'stars', 'description']
+  name: "RepositoryCard",
+  props: ['repoName', 'language', 'owner', 'stars', 'description', 'id'],
+  methods: {
+    repoDetails: function (id) {
+      this.$router.push(`/details/${id}`);
+    }
+  }
 }
 </script>
 

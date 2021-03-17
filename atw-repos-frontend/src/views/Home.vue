@@ -1,10 +1,13 @@
 <template>
   <div class="home">
 
-
-    <p>
-      Linguagens...
+    <p v-if="repos.length < 1">
+      Ei, quer saber quais os 5 repositórios mais populares para as linguages que eu mais acho daora?
     </p>
+    <p v-else>
+      Exibindo os 5 repositórios mais populares para as linguagens:
+    </p>
+
     <div class="langsDisplay">
       <div v-for="lang in langs" :key="lang.code">
         <language-card :lang_name="lang.name"/>
@@ -20,13 +23,12 @@
             :owner="repo.owner_name"
             :stars="repo.stars"
             :description="repo.description"
-            @click="repoDetails(repo.id)"/>
-
+            :id="repo.id"
+        />
       </div>
     </div>
 
-
-    <a class="button" @click="retrieveRepos" v-if="repos.length < 1"> OBTER REPOSITÓRIOS</a>
+    <a class="button" @click="fetchRepositories" v-if="repos.length < 1"> OBTER REPOSITÓRIOS</a>
 
   </div>
 </template>
@@ -35,6 +37,7 @@
 import RepositoryCard from "@/components/RepositoryCard";
 import AtwButton from "@/components/shared/atw-button";
 import LanguageCard from "@/components/LanguageCard";
+import { mapState, mapActions } from 'vuex';
 
 import LanguageService from "@/services/LanguageService";
 import RepositoryService from "@/services/RepositoryService";
@@ -49,42 +52,23 @@ export default {
   },
   data() {
     return {
-      repos: [],
-      langs: []
     };
   },
-  computed: {},
+  computed:
+    mapState({
+      langs: state => state.languages,
+      repos: state => state.repositories
+    })
+,
 
   mounted() {
-    this.retrieveLangs();
+    this.$store.dispatch('fetchLanguages')
   },
 
   methods: {
-    retrieveLangs: function () {
-      console.log("Fetching LANGS!");
-      LanguageService.list()
-          .then(response => {
-            this.langs = response.data;
-            console.log(response.data);
-          })
-          .catch(e => {
-            console.log(e);
-          });
-    },
-    retrieveRepos: function () {
-      console.log("Fetching REPOS!");
-      RepositoryService.list()
-          .then(response => {
-            this.repos = response.data;
-            console.log(response.data);
-          })
-          .catch(e => {
-            console.log(e);
-          });
-    },
-    repoDetails: function (id) {
-      this.$router.push(`/details/${id}`);
-    }
+    ...mapActions([
+        'fetchRepositories',
+      ])
   }
 }
 
