@@ -1,5 +1,5 @@
 <template>
-<button class="button">{{ text }}</button>
+  <span class="button">{{ text }}</span>
 </template>
 
 <script>
@@ -9,11 +9,15 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="css">
 
 .button {
   background: #EF0044;
   @apply m-2 p-4 rounded-xl text-white font-semibold
+}
+
+.button:hover {
+  cursor: pointer;
 }
 
 </style>

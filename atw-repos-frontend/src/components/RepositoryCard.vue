@@ -1,7 +1,5 @@
 <template>
   <div class="repoCard">
-    <article class="card">
-
       <section class="cardHeader">
         <p class=""><strong>{{ repoName }}</strong><span class="comp">, by </span><i>{{ owner }}</i><span class="comp">.</span></p>
       </section>
@@ -12,8 +10,6 @@
         <p class="langTag">{{ language }}</p>
         <p class=""><strong>{{ stars }}</strong></p>
       </section>
-    </article>
-
   </div>
 </template>
 
@@ -30,7 +26,7 @@ name: "RepositoryCard",
   background-color: whitesmoke;
   border: 1px solid white;
   max-width: 300px;
-  min-height: 100px;
+  min-height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -56,6 +52,8 @@ name: "RepositoryCard",
 
 .cardHeader {
   margin-bottom: 15px;
+  align-self: flex-start;
+  flex-grow: 0
 }
 
 .cardFooter {
@@ -63,6 +61,12 @@ name: "RepositoryCard",
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  justify-self: flex-end;
+  flex-grow: 0;
+}
+
+.cardBody {
+  flex-grow: 1
 }
 
 </style>

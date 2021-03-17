@@ -2,7 +2,7 @@
   <div id="app">
     <atw-navbar/>
       <router-view/>
-    <atw-footer/>
+    <!--<atw-footer/>-->
   </div>
 </template>
 
