@@ -1,7 +1,12 @@
 <template>
   <div class="repoCard">
       <section class="cardHeader">
-        <p class=""><strong>{{ repoName }}</strong><span class="comp">, by </span><i>{{ owner }}</i><span class="comp">.</span></p>
+        <p class="">
+          <strong>{{ repoName }}</strong>
+          <span class="comp">, by </span>
+          <i>{{ owner }}</i>
+          <span class="comp">.</span>
+        </p>
       </section>
       <section class="cardBody">
         {{ description }}
@@ -21,6 +26,7 @@ name: "RepositoryCard",
 </script>
 
 <style scoped>
+
 .repoCard {
   box-shadow: #EF0044;
   background-color: whitesmoke;
@@ -42,18 +48,14 @@ name: "RepositoryCard",
 
 }
 
-.comp {
-  color: gray;
-}
-
-.langTag {
-  font-weight: bold;
-}
-
 .cardHeader {
   margin-bottom: 15px;
   align-self: flex-start;
   flex-grow: 0
+}
+
+.cardBody {
+  flex-grow: 1
 }
 
 .cardFooter {
@@ -65,8 +67,14 @@ name: "RepositoryCard",
   flex-grow: 0;
 }
 
-.cardBody {
-  flex-grow: 1
+.comp {
+  color: gray;
 }
+
+.langTag {
+  font-weight: bold;
+}
+
+
 
 </style>

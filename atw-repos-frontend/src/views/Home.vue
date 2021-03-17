@@ -11,8 +11,6 @@
       </div>
     </div>
 
-
-
     <div class="container reposDisplay">
 
       <div v-for="repo in repos" :key="repo.id">
@@ -21,23 +19,14 @@
             :language="repo.language.name"
             :owner="repo.owner_name"
             :stars="repo.stars"
-            :description="repo.description"/>
+            :description="repo.description"
+            @click="repoDetails(repo.id)"/>
 
       </div>
-
-      <!--
-      <repository-card repoName="Rails" language="Ruby" owner="Rails Core Team" stars="5000" description="Imagine what you could build if you learned Ruby on Rails…"/>
-      <repository-card repoName="Rails" language="Ruby" owner="Rails Core Team" stars="5000" description="Imagine what you could build if you learned Ruby on Rails…"/>
-      <repository-card repoName="Rails" language="Ruby" owner="Rails Core Team" stars="5000" description="Imagine what you could build if you learned Ruby on Rails…"/>
-      <repository-card repoName="Rails" language="Ruby" owner="Rails Core Team" stars="5000" description="Imagine what you could build if you learned Ruby on Rails…"/>
-      <repository-card repoName="Rails" language="Ruby" owner="Rails Core Team" stars="5000" description="Imagine what you could build if you learned Ruby on Rails…"/>
-      <repository-card repoName="Rails" language="Ruby" owner="Rails Core Team" stars="5000" description="Imagine what you could build if you learned Ruby on Rails…"/>
-      -->
     </div>
 
 
     <a class="button" @click="retrieveRepos" v-if="repos.length < 1"> OBTER REPOSITÓRIOS</a>
-    <!-- <atw-button v-if="repos.length < 1" text="Obter Repositórios" @click="retrieveRepos" /> -->
 
   </div>
 </template>
@@ -92,6 +81,9 @@ export default {
           .catch(e => {
             console.log(e);
           });
+    },
+    repoDetails: function (id) {
+      this.$router.push(`/details/${id}`);
     }
   }
 }
