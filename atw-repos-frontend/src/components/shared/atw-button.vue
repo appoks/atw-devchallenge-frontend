@@ -1,10 +1,11 @@
 <template>
-<button class="button">Obter Repositórios</button>
+<button class="button">{{ text }}</button>
 </template>
 
 <script>
 export default {
-name: "atw-button"
+  name: "atw-button",
+  props: ['text']
 }
 </script>
 
