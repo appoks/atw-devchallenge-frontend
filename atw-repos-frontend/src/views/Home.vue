@@ -77,25 +77,18 @@ export default {
 <style scoped>
 
 .langsDisplay {
-  display: flex;
-  flex-direction: row;
+
   margin: 0 auto;
-  width: 70%;
-  justify-content: space-between;
+
   padding-top: 20px;
 }
 
 .reposDisplay {
   width: 100%;
-  padding-top: 3rem;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  column-gap: 2rem;
-  row-gap: 3rem;
-  margin-bottom: 35px;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
 }
+
 
 .button {
   background: #EF0044;
@@ -108,6 +101,68 @@ export default {
 
 .home {
   padding-top: 48px;
+}
+
+@media (min-width: 300px) {
+  .langsDisplay {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-row-gap: 2px;
+    grid-column-gap: 2px;
+  }
+}
+
+@media (min-width: 500px)
+{
+  .reposDisplay
+  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .langsDisplay
+  {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+@media (min-width: 760px)
+{
+  .reposDisplay
+  {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: grid;
+    column-gap: 2rem;
+    padding-top: 3rem;
+    margin-bottom: 35px;
+    padding-bottom: 50px;
+  }
+  .langsDisplay
+  {
+    width: 70%;
+  }
+}
+
+@media (min-width: 1024px)
+{
+  .reposDisplay
+  {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1300px)
+{
+  .reposDisplay
+  {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .langsDisplay
+  {
+    justify-content: space-between;
+  }
 }
 
 </style>

@@ -1,9 +1,11 @@
 <template>
 
   <article class="langCard">
-    <strong>
-    {{ lang_name }}
-    </strong>
+    <p>
+      <strong>
+        {{ lang_name }}
+      </strong>
+    </p>
   </article>
 
 
@@ -19,14 +21,35 @@ export default {
 <style scoped lang="scss">
 
 .langCard {
-  padding: 24px;
-  height: 64px;
-  width: 200px;
-  vertical-align: center;
   border-radius: 10px;
   background-color: whitesmoke;
   font-weight: bold;
   border: 1px solid white;
+  vertical-align: center;
+}
+
+@media (min-width: 300px)
+{
+  .langCard {
+    height: 34px;
+    padding: 5px;
+  }
+}
+
+@media (min-width: 500px)
+{
+  .langCard {
+    width: 100px;
+    height: 64px;
+    padding: 20px;
+  }
+}
+@media (min-width: 1024px)
+{
+  .langCard {
+    width: 200px;
+    height: 64px;
+  }
 }
 
 </style>

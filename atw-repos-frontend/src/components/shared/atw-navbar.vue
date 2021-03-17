@@ -3,10 +3,13 @@
     <span>
       <p class="brand">Ateliware Dev Challenge</p>
     </span>
-    <span>
+    <!--
+    <span class="links">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </span>
+
+    -->
 
     <span>
       <p class="name"> Johnathan Radünz Nunes</p>
@@ -48,6 +51,17 @@ name: "atw-navbar"
 
 .name, .brand {
   font-weight: bold;
+}
+
+.name {
+  display: none;
+}
+
+@media (min-width: 500px)
+{
+  .name {
+    display: block;
+  }
 }
 
 </style>
