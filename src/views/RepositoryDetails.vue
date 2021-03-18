@@ -25,7 +25,11 @@
     <hr/>
 
       <span class="statistics">
-            <p><b>Forks:</b> {{ repo.forks }} <font-awesome-icon icon="code-branch" /></p>
+            <p>
+              <span class="param-name"><b>Forks: </b></span>
+              <span> {{ repo.forks }} </span>
+              <span> <font-awesome-icon icon="code-branch" /> </span>
+            </p>
             <p><b>Issues:</b> {{ repo.issues }} <font-awesome-icon icon="bug" /></p>
             <p><b>Watchers:</b> {{ repo.watchers }} <font-awesome-icon icon="eye" /></p>
       </span>
@@ -39,7 +43,7 @@
       <hr/>
 
       <span>
-        <p><i>Escrito em <strong>{{ repo.language.name.toUpperCase() }}</strong></i></p>
+        <p><i>Escrito em <strong> {{ repo.language.name.toUpperCase() }} </strong></i></p>
         <p><b>Score:</b> {{ repo.score | formatValue }} </p>
       </span>
 
@@ -137,10 +141,14 @@ a {
   display: none;
 }
 
+
 @media (min-width: 500px) {
 
   .card-title {
     display: block;
   }
+
+
+
 }
 </style>
