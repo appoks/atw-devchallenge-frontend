@@ -25,13 +25,21 @@
     <hr/>
 
       <span class="statistics">
-            <p>
-              <span class="param-name"><b>Forks: </b></span>
-              <span> {{ repo.forks }} </span>
-              <span> <font-awesome-icon icon="code-branch" /> </span>
+            <p class="param">
+              <span class="param-name"><b > Forks: </b></span>
+              <span class="param-value"> {{ repo.forks }} <font-awesome-icon class="icon" icon="code-branch" /> </span>
             </p>
-            <p><b>Issues:</b> {{ repo.issues }} <font-awesome-icon icon="bug" /></p>
-            <p><b>Watchers:</b> {{ repo.watchers }} <font-awesome-icon icon="eye" /></p>
+
+            <p class="param">
+              <span class="param-name"> <b> Issues: </b></span>
+              <span class="param-value"> {{ repo.issues }} <font-awesome-icon class="icon" icon="bug" /> </span>
+            </p>
+
+            <p class="param">
+              <span class="param-name"><b> Watchers: </b></span>
+              <span class="param-value"> {{ repo.watchers }} <font-awesome-icon class="icon" icon="eye" /> </span>
+            </p>
+
       </span>
 
       <hr/>
@@ -141,11 +149,31 @@ a {
   display: none;
 }
 
+.param-value .icon {
+  margin-left: 5px;
+
+}
+
+.param-value {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
 
 @media (min-width: 500px) {
 
   .card-title {
     display: block;
+  }
+
+  .param {
+    display: flex;
+  }
+  .param-name {
+    margin-right: 5px;
   }
 
 
