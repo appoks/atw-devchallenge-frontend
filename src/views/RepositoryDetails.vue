@@ -6,7 +6,7 @@
   <div class="details-wrapper">
 
     <section class="details-header">
-      <h6><b>DETALHES DO REPOSITÓRIO</b></h6>
+      <h6 class="card-title"><b>DETALHES DO REPOSITÓRIO</b></h6>
         <p>
           <strong>{{ repo.name.toUpperCase() }}</strong>
         </p>
@@ -131,5 +131,16 @@ a {
 .button {
   padding: 0 30px;
   cursor: pointer;
+}
+
+.card-title {
+  display: none;
+}
+
+@media (min-width: 500px) {
+
+  .card-title {
+    display: block;
+  }
 }
 </style>
