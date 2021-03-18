@@ -104,6 +104,14 @@ export default {
 }
 
 @media (min-width: 300px) {
+
+  .reposDisplay {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .langsDisplay {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -114,12 +122,6 @@ export default {
 
 @media (min-width: 500px)
 {
-  .reposDisplay
-  {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
   .langsDisplay
   {
     display: flex;
@@ -162,6 +164,7 @@ export default {
   .langsDisplay
   {
     justify-content: space-between;
+    max-width: 1024px;
   }
 }
 

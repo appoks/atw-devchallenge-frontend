@@ -1,5 +1,10 @@
 <template>
+
+  <div class="repository-details">
+
+
   <div class="details-wrapper">
+
     <section class="details-header">
       <h6><b>DETALHES DO REPOSITÓRIO</b></h6>
         <p>
@@ -41,6 +46,10 @@
     </section>
 
 
+
+
+  </div>
+    <a class="button" @click="back"> <font-awesome-icon icon="arrow-circle-left" /> <strong>Voltar</strong> </a>
   </div>
 </template>
 
@@ -53,6 +62,11 @@ export default {
   name: "RepositoryDetails",
   mounted() {
     this.$store.dispatch('fetchRepository', this.$route.params.id)
+  },
+  methods: {
+    back: function () {
+      this.$router.push('/')
+    }
   },
   filters: {
     formatDateTime: function (value) {
@@ -112,5 +126,10 @@ export default {
 
 a {
   color: #EF0044;
+}
+
+.button {
+  padding: 0 30px;
+  cursor: pointer;
 }
 </style>
